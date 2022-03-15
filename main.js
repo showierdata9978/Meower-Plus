@@ -136,11 +136,6 @@ function playselect() {
 	audio.play();
 }
 
-function playintro() {
-	var audio = new Audio('Assets/start.wav');
-	audio.play();
-}
-
 function addpost(icon,post,user) {
     if (icon == "PF") {
         document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
@@ -191,7 +186,6 @@ async function hometrans() {
 async function goto_connect() {
 	document.getElementById('start').style.visibility = 'hidden';
 	document.getElementById('introscreen').style.visibility = 'visible';
-	playintro()
 	document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
 	window.cljs = new Cloudlink("wss://server.meower.org/");
 	window.is_authed = false;
