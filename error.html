@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="error.js"></script>
+		<style type="text/css">
+			@keyframes scroll {
+				0% {
+					transform: translate(0%,0%);
+				}
+				100% {
+					transform: translate(-11%,-11%);
+				}
+			}
+			body{
+				background-color: #00bbff;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+			}
+			#errorimg{
+				height: 200%;
+				width: 200%;
+				bottom: -100%;
+				background-image: url("Assets/Art/error_js.svg");
+				background-repeat: repeat;
+				position: absolute;
+				z-index: -2;	
+			}
+			#errorgred{
+				background-image: url("Assets/Art/gred.svg");
+				width: 200%;
+				height: 200%;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				bottom: -10%;
+				left: -45%;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="errorimg"></div>
+		<div id="errorgred"></div>
+		<p id="errorcontext">Error:</p>
+		<button id="Audio" onclick="Playa()">click me for audio</button>
+		<a href="./index.html">return here lel</a>	
+	</body>
+</html>

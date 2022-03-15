@@ -1,0 +1,430 @@
+body{
+	margin: 0;
+	padding: 0;
+	--ORGANGE_LIGHT_HEX: #f9a637;
+	--ORGANGE_LIGHT_HOVER: #ffce8c;
+	--ORGANGE_LIGHT_CLICK: #cf8b30;
+	--DEBUGCOLOR: red;
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	user-select: none;
+	overflow: hidden;
+}
+
+@font-face {
+  font-family: "Simvoni";
+  src: url("Assets/Fonts/Simvoni.ttf");
+}
+
+@font-face {
+  font-family: "Simvoni-Bold";
+  src: url("Assets/Fonts/Simvoni-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Simvoni-BoldItalic";
+  src: url("Assets/Fonts/Simvoni-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: "Simvoni-Italic";
+  src: url("Assets/Fonts/Simvoni-Italic.ttf");
+}
+
+noscript{
+	position: absolute;
+}
+
+#start{
+	visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#home{
+	visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#introscreen{
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+	visibility: hidden;
+	position: absolute;
+}
+
+#logo_intro{
+	position: absolute;
+	filter: brightness(100);
+}
+
+input{
+	border-color: #ffffff;
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	border-radius: 0px;
+	caret-color: transparent;
+	border-style: solid;
+	border-image: none;
+	outline: none;
+	font-size: 20px;
+	color: white;
+	font-family: Simvoni;
+}
+
+input:active{
+	background-color: var(--ORGANGE_LIGHT_CLICK);
+}
+
+input:hover{
+	background-color: var(--ORGANGE_LIGHT_HOVER);
+}
+
+.Post_User{
+	margin-top: 1.5%;
+	margin-left: 0.4%;
+	text-align: left;
+	font-family: Simvoni-Bold;
+	font-size: 4vw;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.Post_Text{
+	display: flex;
+	margin: 0.8%;
+	font-size: 1.5vw;
+	margin-top: 0.8%;
+}
+
+.SideBar{
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	position: absolute;
+	height: 100%;
+	width: 5%;
+}
+
+.Post_Top{
+	display: flex;
+	height: 8%;
+	margin: 0.4%;
+	width: 100%;
+}
+
+.Post_UserImage{
+	float: left;
+	height: 12vh;
+}
+
+.Post_Home_UI{
+	margin-top: 1%;
+	border-style: solid;
+	border-width: 3.5%;
+	border-radius: 3.5px;
+	border-color: var(--ORGANGE_LIGHT_HEX);
+	width: 98%;
+	overflow-x: hidden;
+	margin-left: 1%;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BIG{
+	width: 40%;
+	height: 20%;
+}
+
+p{
+	font-family: Simvoni;
+	color: white;
+}
+
+p2{
+	font-family: Simvoni;
+	color: block;
+}
+
+.CENTERED{
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	position: absolute;
+}
+
+.meower-styled-button {
+	border: none;
+	height: 10%;
+	width: 80%;
+	margin: 10%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("Assets/Art/plain_button_orange_light.svg");
+}
+
+.meower-styled-button img{
+	width: 70%;
+	height: 70%;
+	margin: 0;
+}
+
+.meower-styled-button:hover {
+	background-color: var(--ORGANGE_LIGHT_HEX);
+}
+
+button{
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	font-size: 140%;
+	color: white;
+	font-family: Simvoni;
+	border-style: solid;
+	border-color: white;
+	border-width: 2%;
+}
+
+button:hover{
+	background-color: var(--ORGANGE_LIGHT_HOVER);
+}
+
+button:active{
+	background-color: var(--ORGANGE_LIGHT_CLICK);
+}
+
+#responsive_introanim1{
+	left: 20%;
+	position: absolute;
+	width: 60%;
+	height: 60%;
+}
+
+#HomeArea{
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 95%;
+	top: 10%;
+	position: absolute;
+	left: 5%;
+	height: 90%;
+	background-color: white;
+}
+
+#introanim1{
+	width: 100%;
+	border: none;
+	height: 100%;
+}
+
+#PostButton {
+	left: 5%;
+	top: 5%;
+	position: absolute;
+	height: 5%;
+	width: 20.1%;	
+}
+
+#txtpostpost {
+	width: 19.6%;
+	left: 5%;
+	height: 4.3%;
+	position: absolute;
+}
+
+#ShowUsers {
+	position: absolute;
+	left: 25%;
+	width: 35%;
+	height: 10%;
+}
+
+#UsersOnline {
+	padding: 1%;
+	top: 20%;
+	visibility: hidden;
+	height: 30%;
+	width: 30%;
+	border-style: solid;
+	border-color: white;
+	border-width: 2%;
+	border-radius: 4px;
+	left: 27.5%;
+	position: absolute;
+}
+
+#meower-style-alert {
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+}
+
+#msa-alert-box {
+	position: absolute;
+	z-index: 2;
+	width: 55%;
+	height: 80%;
+}
+
+#alb_bgimg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#alb-title{
+	left: 50%;
+	top: 10%;
+	width: 90%;
+	text-align: center;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	font-family: Simvoni-Bold;
+	font-size: 5vh;
+}
+
+#alb-message {
+	left: 50%;
+	top: 45%;
+	width: 90%;
+	height: 45%;
+	text-align: center;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	font-family: Simvoni-Bold;
+	font-size: 4vh;
+}
+
+#alb-button {
+	left: 50%;
+	position: absolute;
+	top: 85%;
+	height: 10%;
+	width: 40%;
+	transform: translate(-50%,-50%);
+}
+
+#msa-bg {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0.5;
+	background-color: black;
+}
+
+#login-nocookie {
+	position: absolute;
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+#logbttn_l {
+	top: 40%;
+	font-size: 10vh;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	position: absolute;
+}
+
+#joinbttn_l {
+	top: 60%;
+	left: 50%;
+	font-size: 10vh;
+	transform: translate(-50%,-50%);
+	position: absolute;
+}
+
+#meow_login {
+	position: absolute;
+	left: 50%;
+	top: 80%;
+}
+
+#login_v {
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+#login {
+	visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#user1 {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 35%;
+	left: 50%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 90%;
+}
+
+#pswd1 {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 60%;
+	left: 50%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 90%;
+}
+
+#nocookiewelcome {
+	transform: translate(-50%,-50%);
+	top: 10%;
+	left: 50%;
+	position: absolute;
+	font-size: 8vh;
+	font-family: Simvoni-Bold;
+}
+
+.loginwelcome {
+	transform: translate(-50%,-90%);
+	left: 50%;
+	position: absolute;
+	font-size: 8vh;
+	font-family: Simvoni-Bold;
+}
+
+#gb-bttn {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 85%;
+	left: 19.7%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 30%;
+}
+
+#letsgobttn {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 85%;
+	left: 80.4%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 30%;
+}
+
+#showpassbttn {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 85%;
+	left: 50%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 31%;
+}

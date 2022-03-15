@@ -1,0 +1,187 @@
+body{
+	margin: 0;
+	padding: 0;
+	--ORGANGE_LIGHT_HEX: #f9a637;
+	--ORGANGE_LIGHT_HOVER: #ffce8c;
+	--ORGANGE_LIGHT_CLICK: #cf8b30;
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	user-select: none;
+}
+
+@font-face {
+  font-family: "Simvoni";
+  src: url("Assets/Fonts/Simvoni.ttf");
+}
+
+@font-face {
+  font-family: "Simvoni-Bold";
+  src: url("Assets/Fonts/Simvoni-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Simvoni-BoldItalic";
+  src: url("Assets/Fonts/Simvoni-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: "Simvoni-Italic";
+  src: url("Assets/Fonts/Simvoni-Italic.ttf");
+}
+
+noscript{
+	
+}
+
+#start{
+	
+	width: 100%;
+	height: 100%;
+}
+
+#home{
+	visibility: hidden;
+	
+	width: 100%;
+	height: 100%;
+}
+
+#introscreen{
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	visibility: hidden;
+	
+}
+
+#logo_intro{
+	
+	filter: brightness(100);
+}
+
+input{
+	border-color: #ffffff;
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	border-radius: 0px;
+	caret-color: transparent;
+	border-style: solid;
+	border-image: none;
+	outline: none;
+	font-size: 20px;
+	color: white;
+	font-family: Simvoni;
+}
+
+input:active{
+	background-color: var(--ORGANGE_LIGHT_CLICK);
+}
+
+input:hover{
+	background-color: var(--ORGANGE_LIGHT_HOVER);
+}
+
+.Post_User{
+	margin-top: 1.5%;
+	margin-left: 1%;
+	font-family: Simvoni-Bold;
+	font-size: 4vw;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.Post_Text{
+	display: flex;
+	margin: 0.8%;
+	font-size: 1.5vw;
+	margin-top: 0.8%;
+}
+
+.Post_Top{
+	display: flex;
+	height: 8%;
+	margin: 0.4%;
+	width: 100%;
+}
+
+.Post_UserImage{
+	float: left;
+	height: 12vh;
+	width: 12vw;
+}
+
+.Post_Home_UI{
+	margin-top: 1%;
+	border-style: solid;
+	border-width: 3.5%;
+	border-radius: 3.5px;
+	border-color: var(--ORGANGE_LIGHT_HEX);
+	width: 98%;
+	overflow-x: hidden;
+	margin-left: 1%;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BIG{
+	width: 400px;
+	height: 100px;
+}
+
+p{
+	font-family: Simvoni;
+	color: white;
+}
+
+p2{
+	font-family: Simvoni;
+	color: block;
+}
+
+.CENTERED{
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	
+}
+
+button{
+	background-color: var(--ORGANGE_LIGHT_HEX);
+	border-style: solid;
+	border-color: white;
+	font-size: 140%;
+	color: white;
+	font-family: Simvoni;
+}
+
+button:hover{
+	background-color: var(--ORGANGE_LIGHT_HOVER);
+}
+
+button:active{
+	background-color: var(--ORGANGE_LIGHT_CLICK);
+}
+
+#responsive_introanim1{
+	left: 20%;
+	
+	width: 60%;
+	height: 60%;
+}
+
+#HomeArea{
+	overflow-y: scroll;
+	width: 80%;
+	
+	left: 20%;
+	height: 90%;
+	background-color: white;
+}
+
+#introanim1{
+	width: 100%;
+	border: none;
+	height: 100%;
+}
