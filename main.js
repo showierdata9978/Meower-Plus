@@ -16,6 +16,10 @@ class Cloudlink {
                 cmd: 'direct',
                 val: { cmd: 'type', val: 'js' },
             });
+	    this.send({
+                cmd: 'direct',
+                val: "meower",
+            });
             this.emit('connected');
         };
         this.ws.onmessage = (socketdata) => {
