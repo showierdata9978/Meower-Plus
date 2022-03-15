@@ -1,4 +1,4 @@
-# Meower-HTML5
+# Meower WUI
 NOT MEOWER PLUS
 
 # About
