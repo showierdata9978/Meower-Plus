@@ -8,7 +8,11 @@ Version 1.1.1
 
 # Credits
 Bloc - Main devlopment
+
 Will - CLJS
+
 Tnix - CLJS Code Template
-Bloc - Crap css
+
+Bloc - C*** CSS
+
 Melt - Testing
