@@ -16,7 +16,7 @@ class Cloudlink {
                 cmd: 'direct',
                 val: { cmd: 'type', val: 'js' },
             });
-	    this.send({
+	        this.send({
                 cmd: 'direct',
                 val: "meower",
             });
@@ -146,6 +146,8 @@ async function gotologin() {
 function login() {
     document.getElementById('login-nocookie').style.visibility = 'hidden';
     document.getElementById('login').style.visibility = 'visible';
+    document.getElementById("pswd1").value = "";
+    document.getElementById("user1").value = "";
 }
 
 async function hometrans() {
@@ -191,10 +193,12 @@ async function goto_connect() {
         else if (data.val.post_origin == "home") {
             addpost("PF",data.val.p,data.val.u)
         }
-        else if (data.cmd == "ulist") {
-            ulist = data.val
-            updateusercount()
-        }
+    })
+
+    cljs.on('ulist', (data) => {
+        console.log(data)
+        ulist = data.val
+        updateusercount()
     })
 }
 
@@ -224,12 +228,16 @@ function post() {
 	cljs.send({cmd: "direct", val: {cmd: "post_home", val: document.getElementById("txtpostpost").value}, listener: "post_home"})
 }
 
+var showpassb = false
+
 function showpass() {
     var x = document.getElementById("pswd1");
-    if (x.type === "password") {
-        x.type = "text";
+    if (showpassb == true) {
+        x.style = "-webkit-text-security: disc !important";
+        showpassb = false
     } else {
-        x.type = "password";
+        x.style = "";
+        showpassb = true
     }
 }
 
