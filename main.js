@@ -102,9 +102,8 @@ function clearposts() {
 }
 
 function auth_login() {
-    //localStorage.setItem('pswd', document.getElementById("pswd1").value);
-    //localStorage.setItem('user', document.getElementById("user1").value);
-    //Future
+    localStorage.setItem('pswd', document.getElementById("pswd1").value);
+    localStorage.setItem('user', document.getElementById("user1").value);
     cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: document.getElementById("user1").value, pswd: document.getElementById("pswd1").value}}, listener: "authpswd"})
     cljs.on('statuscode', (data) => {
         if (data.listener == "authpswd") {
@@ -173,8 +172,12 @@ async function goto_connect() {
 	setInterval(ping, 10000)
 	cljs.on('connected', () => {
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connected.html"
-        gotologin()
-	   
+        if (localStorage.getItem('user') === null || localStorage.getItem('pswd') === null) {
+            gotologin()
+        }
+        else {
+            cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: localStorage.getItem('user'), pswd: localStorage.getItem('pswd')}}, listener: "authpswd"})
+        }
     })
 
 	cljs.on('disconnected', () => {
