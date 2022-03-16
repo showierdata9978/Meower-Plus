@@ -6,7 +6,7 @@
 		<link href="style.css" rel="stylesheet" id="darkmodecss">
 		<link href="animation.css" rel="stylesheet">
 		<script type="text/javascript">
-			var errorhandle = true
+			var errorhandle = true //Disables Error Handling, For debugging
 			window.onerror = function(error) {
 				if (errorhandle == true) {
 			  		location.replace("./error.html?error=" + error)
@@ -51,7 +51,7 @@
 			<button onclick="login()" class="BIG" id="logbttn_l">Log in</button>
 			<button onclick="join()" class="BIG" id="joinbttn_l">Join</button>
 			<img src="Assets/Art/happymeow.svg" class="CENTERED" id = "meow_login"></img>
-			<p id="login_v">Meower Public Beta V1.4, Sister project of Meower Media Co or MMC.</p>
+			<p id="login_v">Meower Public Beta V1.4.1, Sister project of Meower Media Co or MMC.</p>
 		</div>
 		<div id="login">
 			<p class="loginwelcome">Login To Meower</p>
@@ -78,9 +78,9 @@
 			<button onclick="showusers()" id="ShowUsers">Show Users Online</button>
 			<input type="text" name="post" value="test" id="txtpostpost"></input>
 			<div class="SideBar">
-				<button class="meower-styled-button" onclick="ms_alert('Home Navbar','This feature is coming soon!')"><img src="Assets/Art/logout.svg"></img></button>
+				<button class="meower-styled-button" onclick="logout()"><img src="Assets/Art/logout.svg"></img></button>
 				<button onclick="ms_alert('Alert test!', 'This is testing the alert box feature! This will be a feature that will be used for disconnection screens and work in progress features!')">Alert Box Test</button>
-				<button onclick="ms_alert('Home Navbar','Full changelog screen coming soon, Changelog: Added Join Button')">Change Log</button>
+				<button onclick="ms_alert('Home Navbar','Full changelog screen coming soon, Changelog: Added Logging out!')">Change Log</button>
 			</div>
 			<div id = "UsersOnline">
 				<p id="UsersCount">bruh</p>
@@ -95,6 +95,10 @@
 					<p2 class="Post_Text">eeee</p2>
 				</div>
 			</div>
+		</div>
+		<div id="logout">
+			<p class="loginwelcome">You Have Logged out!</p>
+			<button class="BIG CENTERED" onclick="location.reload()">Wanna log Back in?</button>
 		</div>
 	</body>
 </html>

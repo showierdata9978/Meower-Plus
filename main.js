@@ -59,7 +59,7 @@ class Cloudlink {
 
 
 
-
+let loggedout = false
 let downloadedposts = []
 let ulist = 0
 let ulistcount = 0
@@ -197,7 +197,7 @@ async function hometrans() {
     getposts()
 }
 
-var nocookielogin = false
+var nocookielogin = false //Disables auto login, for debugging
 
 async function goto_connect() {
 	document.getElementById('start').style.visibility = 'hidden';
@@ -228,7 +228,9 @@ async function goto_connect() {
 
 	cljs.on('disconnected', () => {
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_disconnected.html"
-        ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown",buttonname = "Reload Page",buttonfunc = function() {location.reload()})
+        if (loggedout == false) {
+            ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown",buttonname = "Reload Page",buttonfunc = function() {location.reload()})
+        }
     })
 
 	cljs.on('direct', (data) => {
@@ -249,6 +251,13 @@ async function goto_connect() {
         ulist = data.val
         updateusercount()
     })
+}
+
+function logout() {
+    document.getElementById('home').style.visibility = 'hidden';
+    document.getElementById('logout').style.visibility = 'visible';
+    loggedout = true
+    cljs.disconnect()
 }
 
 async function getposts() {
