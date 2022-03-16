@@ -102,20 +102,28 @@ function clearposts() {
 }
 
 function auth_login() {
+    //localStorage.setItem('pswd', document.getElementById("pswd1").value);
+    //localStorage.setItem('user', document.getElementById("user1").value);
+    //Future
     cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: document.getElementById("user1").value, pswd: document.getElementById("pswd1").value}}, listener: "authpswd"})
     cljs.on('statuscode', (data) => {
-        if (data.val == "E:103 | ID not found") {
-            console.log("h")
-            ms_alert('Login Screen','Invalid Username!')
-        }
-        else if (data.val == "I:011 | Invalid Password") {
-            ms_alert('Login Screen','Invalid Password!')
-        }
-        else if (data.val == "E:018 | Account Banned") {
-            ms_alert('Login Screen','The account You have Attempted to Log Into is Banned!')
-        }
-        else {
-            ms_alert('Login Screen','Unexpected ' + data.val + ' Error!')
+        if (data.listener == "authpswd") {
+            if (data.val == "E:103 | ID not found") {
+                console.log("h")
+                ms_alert('Login Screen','Invalid Username!')
+            }
+            else if (data.val == "I:011 | Invalid Password") {
+                ms_alert('Login Screen','Invalid Password!')
+            }
+            else if (data.val == "E:018 | Account Banned") {
+                ms_alert('Login Screen','The account You have Attempted to Log Into is Banned!')
+            }
+            else if (data.val == "I:100 | OK") {
+                
+            }
+            else {
+                ms_alert('Login Screen','Unexpected ' + data.val + ' Error!')
+            }
         }
     })
 }
