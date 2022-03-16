@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Meower</title>
-		<link href="style.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet" id="darkmodecss">
 		<link href="animation.css" rel="stylesheet">
 		<script type="text/javascript">
 			var errorhandle = true
@@ -35,6 +35,7 @@
 			<div id="msa-bg"></div>
 		</div>
 		<div id="start">
+			<button class="BIG" id="darkmodetoggle" onclick="changetheme()">Toggle Dark Mode (Might be Outdated) (BETA)</button>
 			<button class="BIG CENTERED" onclick="goto_connect()">Press me to continue.</button>
 		</div>
 		<div id="introscreen">
@@ -50,7 +51,7 @@
 			<button onclick="login()" class="BIG" id="logbttn_l">Log in</button>
 			<button onclick="join()" class="BIG" id="joinbttn_l">Join</button>
 			<img src="Assets/Art/happymeow.svg" class="CENTERED" id = "meow_login"></img>
-			<p id="login_v">Meower Public Beta V1.3, Sister project of Meower Media Co or MMC.</p>
+			<p id="login_v">Meower Public Beta V1.4, Sister project of Meower Media Co or MMC.</p>
 		</div>
 		<div id="login">
 			<p class="loginwelcome">Login To Meower</p>

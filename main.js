@@ -143,6 +143,19 @@ function auth_login() {
     })
 }
 
+var theme = 0
+
+function changetheme() {
+    if (theme == 0) {
+        theme = 1
+        document.getElementById("darkmodecss").href = "style-dark.css"
+    }
+    else {
+        theme = 0
+        document.getElementById("darkmodecss").href = "style.css"
+    }
+}
+
 async function gotologin() {
     await delay(500);
     document.getElementById('logo_intro').style.animation = 'zoomoutintro1 1.6s ease';
