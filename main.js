@@ -101,6 +101,22 @@ function clearposts() {
     document.getElementById('HomeArea').innerHTML = ""
 }
 
+function auth_join() {
+    localStorage.setItem('pswd', document.getElementById("pswd2").value);
+    localStorage.setItem('user', document.getElementById("user2").value);
+    cljs.send({ cmd: "direct", val: {cmd: "gen_account", val: {username: document.getElementById("user2").value, pswd: document.getElementById("pswd2").value}}, listener: "authpswd"})
+    cljs.on('statuscode', (data) => {
+        if (data.listener == "authpswd") {
+            if (data.val == "I:100 | OK") {
+                
+            }
+            else {
+                ms_alert('Join Screen','Unexpected ' + data.val + ' Error!')
+            }
+        }
+    })
+}
+
 function auth_login() {
     localStorage.setItem('pswd', document.getElementById("pswd1").value);
     localStorage.setItem('user', document.getElementById("user1").value);
@@ -149,21 +165,33 @@ function login() {
     document.getElementById("user1").value = "";
 }
 
+function join() {
+    document.getElementById('login-nocookie').style.visibility = 'hidden';
+    document.getElementById('join').style.visibility = 'visible';
+    document.getElementById("pswd2").value = "";
+    document.getElementById("user2").value = "";
+}
+
 async function hometrans() {
 	document.getElementById('login').style.animation = 'fadeout 1s';
+    document.getElementById('join').style.animation = 'fadeout 1s';
 	await delay(1000);
 	document.getElementById('login').style.visibility = 'hidden';
+    document.getElementById('join').style.visibility = 'hidden';
 	document.getElementById('home').style.visibility = 'visible';
 	document.getElementById('home').style.animation = 'fadein 1s';
     clearposts()
     getposts()
 }
 
+var nocookielogin = true
+
 async function goto_connect() {
 	document.getElementById('start').style.visibility = 'hidden';
 	document.getElementById('introscreen').style.visibility = 'visible';
 	document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
-	window.cljs = new Cloudlink("wss://server.meower.org/");
+	//window.cljs = new Cloudlink("wss://server.meower.org/");
+    window.cljs = new Cloudlink("ws://localhost:3000/");
 	window.is_authed = false;
 
 	function ping() {
@@ -172,11 +200,16 @@ async function goto_connect() {
 	setInterval(ping, 10000)
 	cljs.on('connected', () => {
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connected.html"
-        if (localStorage.getItem('user') === null || localStorage.getItem('pswd') === null) {
+        if (nocookielogin == true) {
             gotologin()
         }
         else {
-            cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: localStorage.getItem('user'), pswd: localStorage.getItem('pswd')}}, listener: "authpswd"})
+            if (localStorage.getItem('user') === null || localStorage.getItem('pswd') === null) {
+                gotologin()
+            }
+            else {
+                cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: localStorage.getItem('user'), pswd: localStorage.getItem('pswd')}}, listener: "authpswd"})
+            }
         }
     })
 
@@ -235,6 +268,17 @@ var showpassb = false
 
 function showpass() {
     var x = document.getElementById("pswd1");
+    if (showpassb == true) {
+        x.style = "-webkit-text-security: disc !important";
+        showpassb = false
+    } else {
+        x.style = "";
+        showpassb = true
+    }
+}
+
+function showpass2() {
+    var x = document.getElementById("pswd2");
     if (showpassb == true) {
         x.style = "-webkit-text-security: disc !important";
         showpassb = false

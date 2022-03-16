@@ -396,7 +396,7 @@ button:active{
 	font-family: Simvoni-Bold;
 }
 
-#gb-bttn {
+.gb-bttn {
 	position: absolute;
 	transform: translate(-50%,-50%);
 	top: 85%;
@@ -407,7 +407,7 @@ button:active{
 	width: 30%;
 }
 
-#letsgobttn {
+.letsgobttn {
 	position: absolute;
 	transform: translate(-50%,-50%);
 	top: 85%;
@@ -418,7 +418,7 @@ button:active{
 	width: 30%;
 }
 
-#showpassbttn {
+.showpassbttn {
 	position: absolute;
 	transform: translate(-50%,-50%);
 	top: 85%;
@@ -427,4 +427,30 @@ button:active{
 	font-size: 10vh;
 	text-align: center;
 	width: 31%;
+}
+
+#user2 {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 35%;
+	left: 50%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 90%;
+}
+
+#pswd2 {
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 60%;
+	left: 50%;
+	height: 20%;
+	font-size: 10vh;
+	text-align: center;
+	width: 90%;
+}
+
+#join {
+	visibility: hidden;
 }

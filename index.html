@@ -48,9 +48,9 @@
 		<div id="login-nocookie">
 			<p id="nocookiewelcome">Welcome to Meower!</p>
 			<button onclick="login()" class="BIG" id="logbttn_l">Log in</button>
-			<button onclick="ms_alert('Login Screen','This Feature Is coming soon!')" class="BIG" id="joinbttn_l">Join</button>
+			<button onclick="join()" class="BIG" id="joinbttn_l">Join</button>
 			<img src="Assets/Art/happymeow.svg" class="CENTERED" id = "meow_login"></img>
-			<p id="login_v">Meower Public Beta V1.2.2, Sister project of Meower Media Co or MMC.</p>
+			<p id="login_v">Meower Public Beta V1.3, Sister project of Meower Media Co or MMC.</p>
 		</div>
 		<div id="login">
 			<p class="loginwelcome">Login To Meower</p>
@@ -58,11 +58,20 @@
 				<input placeholder="Enter Your Password." id="pswd1" style="-webkit-text-security: disc !important;"></input>
 				<input placeholder="Enter Your Username." id="user1"></input>
 			</form>
-			<button onclick="auth_login()" id="letsgobttn">Let's go!</button>
-			<button onclick="showpass()" id="showpassbttn">Show/Hide Password</button>
-			<button onclick="ms_alert('Login Screen','This Feature Is coming soon!')" id="gb-bttn">Go Back</button>
+			<button onclick="auth_login()" class="letsgobttn">Let's go!</button>
+			<button onclick="showpass()" class="showpassbttn">Show/Hide Password</button>
+			<button onclick="ms_alert('Login Screen','This Feature Is coming soon!')" class="gb-bttn">Go Back</button>
 		</div>
-		<div id="join"></div>
+		<div id="join">
+			<p class="loginwelcome">Welcome To Meower!</p>
+			<form autocomplete="off">
+				<input placeholder="Enter A Password." id="pswd2" style="-webkit-text-security: disc !important;"></input>
+				<input placeholder="Enter A Username." id="user2"></input>
+			</form>
+			<button onclick="auth_join()" class="letsgobttn">Let's go!</button>
+			<button onclick="showpass2()" class="showpassbttn">Show/Hide Password</button>
+			<button onclick="ms_alert('Join Screen','This Feature Is coming soon!')" class="gb-bttn">Go Back</button>
+		</div>
 		<div id="home">
 			<button onclick="post()" id="PostButton">Post</button>
 			<button onclick="showusers()" id="ShowUsers">Show Users Online</button>
@@ -70,7 +79,7 @@
 			<div class="SideBar">
 				<button class="meower-styled-button" onclick="ms_alert('Home Navbar','This feature is coming soon!')"><img src="Assets/Art/logout.svg"></img></button>
 				<button onclick="ms_alert('Alert test!', 'This is testing the alert box feature! This will be a feature that will be used for disconnection screens and work in progress features!')">Alert Box Test</button>
-				<button onclick="ms_alert('Home Navbar','Full changelog screen coming soon, Changelog: Added Auto Login')">Change Log</button>
+				<button onclick="ms_alert('Home Navbar','Full changelog screen coming soon, Changelog: Added Join Button')">Change Log</button>
 			</div>
 			<div id = "UsersOnline">
 				<p id="UsersCount">bruh</p>
