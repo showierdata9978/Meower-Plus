@@ -104,22 +104,18 @@ function clearposts() {
 function auth_login() {
     cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: document.getElementById("user1").value, pswd: document.getElementById("pswd1").value}}, listener: "authpswd"})
     cljs.on('statuscode', (data) => {
-        console.log(data.val)
-        if (data.listener == "authpswd") {
-            console.log("auth")
-        }
-        if (data == "E:103 | ID not found") {
+        if (data.val == "E:103 | ID not found") {
             console.log("h")
             ms_alert('Login Screen','Invalid Username!')
         }
-        else if (data == "I:011 | Invalid Password") {
+        else if (data.val == "I:011 | Invalid Password") {
             ms_alert('Login Screen','Invalid Password!')
         }
-        //else if (data == "E:018 | Account Banned") {
-            //ms_alert('Login Screen','The account You have Attempted to Log Into is Banned!')
+        else if (data.val == "E:018 | Account Banned") {
+            ms_alert('Login Screen','The account You have Attempted to Log Into is Banned!')
+        }
         else {
-
-            ms_alert('Login Screen','Unexpected ' + data + ' Error!')
+            ms_alert('Login Screen','Unexpected ' + data.val + ' Error!')
         }
     })
 }
