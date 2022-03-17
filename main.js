@@ -88,12 +88,12 @@ function playselect() {
 	audio.play();
 }
 
-function addpost(icon,post,user) {
+function addpost(icon,post,user,id = null) {
     if (icon == "PF") {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + id + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
     }
     else {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + "noid" + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
     }
 }
 
@@ -242,7 +242,7 @@ async function goto_connect() {
             }
         }
         else if (data.val.post_origin == "home") {
-            addpost("PF",data.val.p,data.val.u)
+            addpost("PF",data.val.p,data.val.u,downloadedposts[i].post_id)
         }
     })
 
@@ -275,7 +275,7 @@ async function getposts() {
         console.log(downloadedposts)
         downloadedposts.push(rev[i])
         //add meower oauth api stuff for pfps
-        addpost("PF",downloadedposts[i].p,downloadedposts[i].u)
+        addpost("PF",downloadedposts[i].p,downloadedposts[i].u,downloadedposts[i].post_id)
 	}
     if (downloadedposts.length < 1) {
         addpost("PF","There Are No posts! Sit back and wait until there is a new post!","System")

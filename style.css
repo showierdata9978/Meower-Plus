@@ -172,10 +172,6 @@ p2{
 	margin: 0;
 }
 
-.meower-styled-button:hover {
-	background-color: var(--ORGANGE_LIGHT_HEX);
-}
-
 button{
 	background-color: var(--ORGANGE_LIGHT_HEX);
 	font-size: 140%;
@@ -464,4 +460,10 @@ button:active{
 
 #logout {
 	visibility: hidden;
+}
+
+#wthiswrongwithyou {
+	position: absolute;
+	top: 120%;
+	left: 120%;
 }
