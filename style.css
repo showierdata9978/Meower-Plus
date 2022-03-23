@@ -461,9 +461,3 @@ button:active{
 #logout {
 	visibility: hidden;
 }
-
-#wthiswrongwithyou {
-	position: absolute;
-	top: 120%;
-	left: 120%;
-}
