@@ -89,11 +89,13 @@ function playselect() {
 }
 
 function addpost(icon,post,user,id = null) {
+    postfil = post.replace("<","")
+    postfil2 = postfil.replace(">","")
     if (icon == "PF") {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + id + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + id + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + postfil2 + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
     }
     else {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + "noid" + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + "noid" + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + postfil2 + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
     }
 }
 
@@ -242,7 +244,7 @@ async function goto_connect() {
             }
         }
         else if (data.val.post_origin == "home") {
-            addpost("PF",data.val.p,data.val.u,downloadedposts[i].post_id)
+            addpost("PF",data.val.p,data.val.u)
         }
     })
 
