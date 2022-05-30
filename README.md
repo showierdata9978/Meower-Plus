@@ -11,7 +11,7 @@ Not updated actively because bloctans is lazy
 # Credits
 Bloc - Main devlopment
 
-Will - CLJS
+William - CLJS
 
 Tnix - CLJS Code Template
 
