@@ -1,10 +1,11 @@
-from warnings import catch_warnings
+import os, platform
 
+url = os.path.abspath(os.getcwd()) + '/index.html'
+sys = platform.system()
 
-import os
-try:
-    import webbrowser
-except:
-    os.system("pip install webbrowser")
-url= os.path.abspath(os.getcwd()) + '/index.html'
-webbrowser.get('C:/Program Files/Google/Chrome/Application/chrome.exe %s').open(url)
+if sys == "Linux":
+    os.system(f"xdg-open {url}")
+elif sys == "Darwin":
+    os.system(f"open {url}")
+elif sys == "Win32":
+    os.system(f"start {url}")
