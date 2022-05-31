@@ -1,20 +1,13 @@
-# Meower WUI
-NOT MEOWER PLUS
+# Meower WebUI
 
 # About
-Meower Html5 Is a version of Meower Written with CLJS. It is User Freindly.
+Meower HTML5 (also known as Meower WebUI) is a version of Meower written with CLJS.
 
-Version 1.1.1
-
-Not updated actively because bloctans is lazy
+Version 1.4.2
+Not actively updated.
 
 # Credits
-Bloc - Main devlopment
-
-William - CLJS
-
-Tnix - CLJS Code Template
-
-Bloc - C*** CSS
-
-Melt - Testing
+Bloc - Main devlopment and CSS  
+William - CLJS  
+Tnix - CLJS Code Template  
+Melt - Code contribution and testing
