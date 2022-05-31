@@ -127,19 +127,19 @@ function auth_login() {
         if (data.listener == "authpswd") {
             if (data.val == "E:103 | ID not found") {
                 console.log("h")
-                ms_alert('Login Screen','Invalid Username!')
+                ms_alert('Login Screen','Invalid username!')
             }
             else if (data.val == "I:011 | Invalid Password") {
-                ms_alert('Login Screen','Invalid Password!')
+                ms_alert('Login Screen','Invalid password!')
             }
             else if (data.val == "E:018 | Account Banned") {
-                ms_alert('Login Screen','The account You have Attempted to Log Into is Banned!')
+                ms_alert('Login Screen','The account you have attempted to log in to is banned!')
             }
             else if (data.val == "I:100 | OK") {
                 
             }
             else {
-                ms_alert('Login Screen','Unexpected ' + data.val + ' Error!')
+                ms_alert('Login Screen','Unexpected ' + data.val + ' error!')
             }
         }
     })
@@ -266,7 +266,7 @@ async function getposts() {
 	addpost(21,"Fetching posts","Home")
     let postfetch = await jfetch('https://api.meower.org/home?autoget')
     clearposts()
-    addpost(21,"Fetching posts done!","Home")
+    addpost(21,"Fetching posts completed!","Home")
     await delay(400)
     var rev = postfetch.autoget.reverse() 
     var l = postfetch.autoget.length
@@ -280,7 +280,7 @@ async function getposts() {
         addpost("PF",downloadedposts[i].p,downloadedposts[i].u,downloadedposts[i].post_id)
 	}
     if (downloadedposts.length < 1) {
-        addpost("PF","There Are No posts! Sit back and wait until there is a new post!","System")
+        addpost("PF","There are no posts! Sit back and wait until someone sends a new post!","System")
     }
 }
 
@@ -342,7 +342,7 @@ function updateusercount() {
     ulistcount = ulist.split(";")
     ulistnames = ulist.replace(";", ", ")
     ulistcount = ulistcount.length - 1
-    document.getElementById("UsersOn").innerHTML = "The Users Online are: " + ulistnames + "."
+    document.getElementById("UsersOn").innerHTML = "The users online are " + ulistnames + "."
     if (ulistcount > 2) {
         document.getElementById("UsersCount").innerHTML = "User count: There are " + (ulistcount - 1) + " other users online."
     }
@@ -350,10 +350,10 @@ function updateusercount() {
         document.getElementById("UsersCount").innerHTML = "User count: There is only 1 other user online."
     }
     else if (ulistcount == 1) {
-        document.getElementById("UsersCount").innerHTML = "User count: Only Your Online."
+        document.getElementById("UsersCount").innerHTML = "User count: Only you're online right now."
     }
     else if (ulistcount == 0) {
-        document.getElementById("UsersCount").innerHTML = "User count: Wait How are there 0 users online?"
+        document.getElementById("UsersCount").innerHTML = "User count: Wait, how are there 0 users online?"
     }
     else if (ulistcount < 0) {
         document.getElementById("UsersCount").innerHTML = "User count: WAIT, " + ulistcount + "USERS? THAT ISNT EVEN POSSIBLE!"
