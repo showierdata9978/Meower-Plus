@@ -24,7 +24,6 @@ class Cloudlink {
         };
         this.ws.onmessage = (socketdata) => {
             var data = JSON.parse(socketdata.data);
-	    ms_alert(data)
             console.log(data)
             this.emit(data.cmd, data);
         };
