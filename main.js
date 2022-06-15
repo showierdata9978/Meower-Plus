@@ -229,10 +229,10 @@ async function goto_connect() {
         }
     })
 
-	cljs.on('disconnected', () => {
+	cljs.on('disconnected', (data) => {
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_disconnected.html"
         if (loggedout == false) {
-            ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown",buttonname = "Reload Page",buttonfunc = function() {location.reload()})
+            ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown, But here is info: "+data,buttonname = "Reload Page",buttonfunc = function() {location.reload()})
         }
     })
 
