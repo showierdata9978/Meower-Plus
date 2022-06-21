@@ -1,7 +1,7 @@
-# Meower WebUI
+# Meower HTML5
 
 # About
-Meower HTML5 (also known as Meower WebUI) is a version of Meower written with CLJS.
+Meower HTML5 is a version of Meower written with CLJS.
 
 Version 1.4.5
 
