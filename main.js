@@ -206,7 +206,7 @@ async function goto_connect() {
 	document.getElementById('start').style.visibility = 'hidden';
 	document.getElementById('introscreen').style.visibility = 'visible';
 	document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
-	window.cljs = new Cloudlink("wss://server.meower.");
+	window.cljs = new Cloudlink("wss://server.meower.org/");
     //window.cljs = new Cloudlink("ws://localhost:3000/");
 	window.is_authed = false;
 
