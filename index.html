@@ -34,10 +34,11 @@
 			<div id="msa-bg"></div>
 		</div>
 		<div id="start">
-			<button class="BIG" id="darkmodetoggle" onclick="changetheme()">Toggle Dark Mode (Might be Outdated) (BETA)</button>
+			<!--<button class="BIG" id="darkmodetoggle" onclick="changetheme()">Toggle Dark Mode (Might be Outdated) (BETA)</button>-->
 			<button class="BIG CENTERED" onclick="goto_connect()">Press me to continue.</button>
 		</div>
 		<div id="introscreen">
+			<p class="loginwelcome" id="statusintro"></p>
 			<img src="Assets/Art/logo_dark_0_orange.svg" id="logo_intro" class = "CENTERED"></img>
 			<div id="responsive_introanim1">
 				<iframe src="" id="introanim1"></iframe>
@@ -48,7 +49,7 @@
 			<button onclick="login()" class="BIG" id="logbttn_l">Log in</button>
 			<button onclick="join()" class="BIG" id="joinbttn_l">Join</button>
 			<img src="Assets/Art/happymeow.svg" class="CENTERED" id = "meow_login"></img>
-			<p id="login_v">Meower Public Beta V1.4.2, Sister project of Meower Media Co.</p>
+			<p id="login_v">Meower Public Beta V1.4.5, Sister project of Meower Media Co.</p>
 		</div>
 		<div id="login">
 			<p class="loginwelcome">Log in to Meower</p>
@@ -76,13 +77,13 @@
 			<input type="text" name="post" value="test" id="txtpostpost"></input>
 			<div class="SideBar">
 				<button class="meower-styled-button" onclick="logout()"><img src="Assets/Art/logout.svg"></img></button>
-				<button class="meower-styled-button" onclick="ms_alert('Group chats','This feature is a work in progress')">Group chats</button>
+				<!--<button class="meower-styled-button" onclick="ms_alert('Group chats','This feature is a work in progress')">Group chats</button>-->
 				<button onclick="ms_alert('Alert test!', 'This is testing the alert box feature! This will be a feature that will be used for disconnection screens and work in progress features!')">Alert Box Test</button>
-				<button onclick="ms_alert('Home Navbar','Full changelog screen coming soon, Changelog: Fixed most (if not all) spelling errors!')">Change Log</button>
+				<button onclick='ms_alert("Home Navbar","Full changelog screen coming soon, Changelog: Removed Group chats And Dark Mode. Made a Better Fix to ACE Exploit.")'>Change Log</button>
 			</div>
 			<div id = "UsersOnline">
-				<p id="UsersCount">Placeholder</p>
-				<p id="UsersOn">Placeholder</p>
+				<p id="UsersCount">OOPS! The code might not be working!</p>
+				<p id="UsersOn">OOPS! The code might not be working!</p>
 			</div>
 			<div id="HomeArea">
 				<div class="Post_Home_UI">

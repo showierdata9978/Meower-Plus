@@ -89,13 +89,13 @@ function playselect() {
 }
 
 function addpost(icon,post,user,id = null) {
-    postfil = post.replace("<","")
-    postfil2 = postfil.replace(">","")
     if (icon == "PF") {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + id + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + postfil2 + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById(id).innerText = post
+        document.getElementById(id + '_user').innerText = user
     }
     else {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI" id="' + "noid" + '"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text">' + postfil2 + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
     }
 }
 
@@ -193,6 +193,7 @@ async function hometrans() {
 	await delay(1000);
 	document.getElementById('login').style.visibility = 'hidden';
     document.getElementById('join').style.visibility = 'hidden';
+    document.getElementById('statusintro').style.visibility = 'hidden';
 	document.getElementById('home').style.visibility = 'visible';
 	document.getElementById('home').style.animation = 'fadein 1s';
     clearposts()
@@ -205,7 +206,7 @@ async function goto_connect() {
 	document.getElementById('start').style.visibility = 'hidden';
 	document.getElementById('introscreen').style.visibility = 'visible';
 	document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
-	window.cljs = new Cloudlink("wss://server.meower.org/");
+	window.cljs = new Cloudlink("wss://server.meower.");
     //window.cljs = new Cloudlink("ws://localhost:3000/");
 	window.is_authed = false;
 
@@ -230,7 +231,8 @@ async function goto_connect() {
 
 	cljs.on('disconnected', (data) => {
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_disconnected.html"
-        if (loggedout == false) {
+        document.getElementById("statusintro").innerHTML = "Disconnected, Please Reload."
+        if (loggedout == false && is_authed == true) {
             ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown, But here is info: "+data,buttonname = "Reload Page",buttonfunc = function() {location.reload()})
         }
     })
@@ -244,7 +246,7 @@ async function goto_connect() {
             }
         }
         else if (data.val.post_origin == "home") {
-            addpost("PF",data.val.p,data.val.u)
+            addpost("PF",data.val.p,data.val.u,data.val.post_id)
         }
     })
 
