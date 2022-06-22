@@ -303,10 +303,10 @@ var showpassb = false
 function showpass() {
     var x = document.getElementById("pswd1");
     if (showpassb == true) {
-        x.style = "-webkit-text-security: disc !important";
+        x.type = "text";
         showpassb = false
     } else {
-        x.style = "";
+        x.type = "password";
         showpassb = true
     }
 }

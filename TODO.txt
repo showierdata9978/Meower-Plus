@@ -15,6 +15,7 @@ Later:
 Changelog screen
 ASK FOR GRAMMAR FIXES
 Beta 6 migration
+FIX LITERALLY EVERYTHING
 Mod panel
 Maintenence api with flask
 Maintenence screen
