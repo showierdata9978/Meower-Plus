@@ -196,65 +196,73 @@ async function hometrans() {
     document.getElementById('statusintro').style.visibility = 'hidden';
 	document.getElementById('home').style.visibility = 'visible';
 	document.getElementById('home').style.animation = 'fadein 1s';
+    document.getElementById('introscreen').style.visibility = 'hidden';
     clearposts()
     getposts()
 }
 
 var nocookielogin = false //Disables auto login, for debugging
 
-async function goto_connect() {
-	document.getElementById('start').style.visibility = 'hidden';
-	document.getElementById('introscreen').style.visibility = 'visible';
-	document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
-	window.cljs = new Cloudlink("wss://server.meower.org/");
-    //window.cljs = new Cloudlink("ws://localhost:3000/");
-	window.is_authed = false;
+var maintenence = false
 
-	function ping() {
-	    cljs.send({cmd: "ping", val: ""})
-	}
-	setInterval(ping, 10000)
-	cljs.on('connected', () => {
-        document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connected.html"
-        if (nocookielogin == true) {
-            gotologin()
+async function goto_connect() {
+    if (maintenence) {
+        document.getElementById('start').style.visibility = 'hidden';
+    }
+    else {
+        document.getElementById('start').style.visibility = 'hidden';
+        document.getElementById('introscreen').style.visibility = 'visible';
+        document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
+        window.cljs = new Cloudlink("wss://server.meower.org/");
+        //window.cljs = new Cloudlink("ws://localhost:3000/");
+        window.is_authed = false;
+
+        function ping() {
+            cljs.send({cmd: "ping", val: ""})
         }
-        else {
-            if (localStorage.getItem('user') === null || localStorage.getItem('pswd') === null) {
+        setInterval(ping, 10000)
+        cljs.on('connected', () => {
+            document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connected.html"
+            if (nocookielogin == true) {
                 gotologin()
             }
             else {
-                cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: localStorage.getItem('user'), pswd: localStorage.getItem('pswd')}}, listener: "authpswd"})
+                if (localStorage.getItem('user') === null || localStorage.getItem('pswd') === null) {
+                    gotologin()
+                }
+                else {
+                    cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: localStorage.getItem('user'), pswd: localStorage.getItem('pswd')}}, listener: "authpswd"})
+                }
             }
-        }
-    })
+        })
 
-	cljs.on('disconnected', (data) => {
-        document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_disconnected.html"
-        document.getElementById("statusintro").innerHTML = "Disconnected, Please Reload."
-        if (loggedout == false && is_authed == true) {
-            ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown, But here is info: "+data,buttonname = "Reload Page",buttonfunc = function() {location.reload()})
-        }
-    })
-
-	cljs.on('direct', (data) => {
-        if (data.listener == "authpswd") {
-            console.log(data.val)
-            if (data.val.mode == "auth") {
-                is_authed = true;
-                hometrans()
+        cljs.on('disconnected', (data) => {
+            document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_disconnected.html"
+            document.getElementById("statusintro").innerHTML = "Disconnected, Please Reload."
+            if (loggedout == false && is_authed == true) {
+                ms_alert("Disconnection Notice","You have been disconnected. The reason is currently unknown, But here is info: "+data,buttonname = "Reload Page",buttonfunc = function() {location.reload()})
             }
-        }
-        else if (data.val.post_origin == "home") {
-            addpost("PF",data.val.p,data.val.u,data.val.post_id)
-        }
-    })
+        })
 
-    cljs.on('ulist', (data) => {
-        console.log(data)
-        ulist = data.val
-        updateusercount()
-    })
+        cljs.on('direct', (data) => {
+            if (data.listener == "authpswd") {
+                console.log(data.val)
+                if (data.val.mode == "auth") {
+                    is_authed = true;
+                    hometrans()
+                }
+            }
+            else if (data.val.post_origin == "home") {
+                addpost("PF",data.val.p,data.val.u,data.val.post_id)
+            }
+        })
+
+        cljs.on('ulist', (data) => {
+            console.log(data)
+            ulist = data.val
+            updateusercount()
+        })
+    }
 }
 
 function logout() {

@@ -5,9 +5,16 @@ Backend Change With Post Ids. Where Post ids are shown as the ids of the posts (
 Fix Disconnection Screen/Alert Box On Loading Screen.
 
 do:
-Changelog screen
+Group chats
+Meowy sleep anim
+Clear cookies
+Settings
+Date on post
 
 Later:
-Group chats
+Changelog screen
 ASK FOR GRAMMAR FIXES
 Beta 6 migration
+Mod panel
+Maintenence api with flask
+Maintenence screen

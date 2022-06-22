@@ -82,6 +82,10 @@ input:hover{
 	background-color: var(--ORGANGE_LIGHT_HOVER);
 }
 
+::placeholder {
+	color: white;
+}
+
 .Post_User{
 	margin-top: 1.5%;
 	margin-left: 0.4%;
@@ -92,11 +96,12 @@ input:hover{
 	overflow: hidden;
 }
 
-.Post_Text{
-	display: flex;
-	margin: 0.8%;
-	font-size: 1.5vw;
-	margin-top: 0.8%;
+.Post_Date{
+	margin-left: 0.4%;
+	height: 20%;
+	text-align: left;
+	font-family: Simvoni-Bold;
+	font-size: 1vw;
 }
 
 .SideBar{
