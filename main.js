@@ -107,6 +107,7 @@ function sussybaka() {
     document.getElementById("HomeArea").style.visibility = "hidden";
     document.getElementById("HomeArea2").style.visibility = "hidden";
     document.getElementById("UsersOnline").style.visibility = "hidden";
+    document.getElementById("group-chats").style.visibility = "hidden";
 }
 
 function tohomeSB() {
@@ -114,6 +115,14 @@ function tohomeSB() {
     document.getElementById("HomeArea").style.visibility = "visible";
     document.getElementById("HomeArea2").style.visibility = "visible";
     document.getElementById("UsersOnline").style.visibility = "hidden";
+    document.getElementById("group-chats").style.visibility = "hidden";
+    hu_nm()
+}
+
+function groupchats() {
+    ms_alert('Group chats','This feature is a work in progress')
+    document.getElementById("home").style.visibility = "hidden";
+    document.getElementById("group-chats").style.visibility = "visible";
     hu_nm()
 }
 
@@ -237,6 +246,7 @@ async function goto_connect() {
         setInterval(ping, 10000)
         cljs.on('connected', () => {
             document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connected.html"
+            console.log(localStorage.getItem('pswd'))
             if (nocookielogin == true) {
                 gotologin()
             }

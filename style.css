@@ -532,3 +532,9 @@ button:active{
 	background: none !important;
 	border: none !important;
 }
+
+#group-chats {
+	position: absolute;
+	visibility: hidden;
+	overflow: scroll;
+}
