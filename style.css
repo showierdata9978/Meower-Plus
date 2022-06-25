@@ -158,7 +158,7 @@ p{
 
 p2{
 	font-family: Simvoni;
-	color: block;
+	color: black;
 }
 
 .CENTERED{
@@ -474,9 +474,20 @@ button:active{
 	visibility: hidden;
 }
 
-#settings {
+#vars {
+	visibility: hidden;
+	position: absolute;
+	overflow: scroll;
+	pointer-events: none;
+}
+
+#Settings {
 	position: absolute;
 	visibility: hidden;
+	width: 95%;
+	left: 5%;
+	height: 100%;
+	background-color: white;
 }
 
 .online {
@@ -485,4 +496,39 @@ button:active{
 	border-radius: 100%;
 	position: absolute;
 	background-color: rgb(82, 255, 47);
+}
+
+.onoff {
+	margin-top: 1%;
+	border-style: solid;
+	border-width: 3.5%;
+	border-radius: 3.5px;
+	border-color: var(--ORGANGE_LIGHT_HEX);
+	width: 98%;
+	overflow-x: hidden;
+	margin-left: 1%;
+	height: 20%;
+}
+
+.option_header {
+	position: absolute;
+	top: 6%;
+	left: 2%;
+	font-family: "Simvoni-Bold";
+	font-size: 3vw;
+}
+
+.option_content {
+	position: absolute;
+	top: 13%;
+	left: 2%;
+	font-size: 1.5vw;
+}
+
+.changebutton {
+	position: absolute;
+	top: 6%;
+	left: 96%;
+	background: none !important;
+	border: none !important;
 }

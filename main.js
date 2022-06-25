@@ -103,7 +103,18 @@ function clearposts() {
 }
 
 function sussybaka() {
-    location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    document.getElementById("Settings").style.visibility = "visible";
+    document.getElementById("HomeArea").style.visibility = "hidden";
+    document.getElementById("HomeArea2").style.visibility = "hidden";
+    document.getElementById("UsersOnline").style.visibility = "hidden";
+}
+
+function tohomeSB() {
+    document.getElementById("Settings").style.visibility = "hidden";
+    document.getElementById("HomeArea").style.visibility = "visible";
+    document.getElementById("HomeArea2").style.visibility = "visible";
+    document.getElementById("UsersOnline").style.visibility = "hidden";
+    hu_nm()
 }
 
 function auth_join() {
@@ -347,6 +358,11 @@ async function hideusers() {
     document.getElementById('HomeArea').style.animation = "none";
     document.getElementById('HomeArea').style.animation = 'hesback 3s ease';
     await delay(1600);
+    document.getElementById('ShowUsers').onclick = function() {showusers()};
+    document.getElementById('ShowUsers').innerHTML = 'Show Users Online';
+}
+
+async function hu_nm() {
     document.getElementById('ShowUsers').onclick = function() {showusers()};
     document.getElementById('ShowUsers').innerHTML = 'Show Users Online';
 }

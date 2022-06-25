@@ -7,15 +7,19 @@ Clear cookies
 Is Online
 
 do:
-Settings/Debug
-
-Next upd:
 Group chats
 Changelog screen
+
+Next upd:
+Settings/Debug
+Themes, Lawnmeower mode, Dark Mode
 
 Next next upd:
 Mod panel
 Maintenence screen
+
+Next next next upd (maybe):
+Go back on login screen work
 
 Later:
 Meowy sleep anim
@@ -23,6 +27,7 @@ Beta 6 migration
 FIX LITERALLY EVERYTHING
 Fix text sizing
 Maintenence api with flask
+Need help with crap css
 
 AAAAAAAAAAAAAAAAAA:
 Date on post
