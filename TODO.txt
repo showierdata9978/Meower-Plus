@@ -3,19 +3,26 @@ Removed Buttons: Group chats, Dark Mode
 Better Fix to ACE Exploit
 Backend Change With Post Ids. Where Post ids are shown as the ids of the posts (in the html) 
 Fix Disconnection Screen/Alert Box On Loading Screen.
+Clear cookies
+Is Online
 
 do:
+Settings/Debug
+
+Next upd:
 Group chats
-Meowy sleep anim
-Clear cookies
-Settings
-Date on post
+Changelog screen
+
+Next next upd:
+Mod panel
+Maintenence screen
 
 Later:
-Changelog screen
-ASK FOR GRAMMAR FIXES
+Meowy sleep anim
 Beta 6 migration
 FIX LITERALLY EVERYTHING
-Mod panel
+Fix text sizing
 Maintenence api with flask
-Maintenence screen
+
+AAAAAAAAAAAAAAAAAA:
+Date on post

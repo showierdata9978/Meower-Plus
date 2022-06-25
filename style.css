@@ -86,6 +86,13 @@ input:hover{
 	color: white;
 }
 
+.Post_Text{
+	display: flex;
+	margin: 0.8%;
+	font-size: 1.5vw;
+	margin-top: 0.8%;
+}
+
 .Post_User{
 	margin-top: 1.5%;
 	margin-left: 0.4%;
@@ -465,4 +472,17 @@ button:active{
 
 #logout {
 	visibility: hidden;
+}
+
+#settings {
+	position: absolute;
+	visibility: hidden;
+}
+
+.online {
+	width: 27px;
+	height: 27px;
+	border-radius: 100%;
+	position: absolute;
+	background-color: rgb(82, 255, 47);
 }

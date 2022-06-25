@@ -88,19 +88,22 @@ function playselect() {
 	audio.play();
 }
 
-function addpost(icon,post,user,id = null) {
-    if (icon == "PF") {
+function addpost(post,user,id = null) {
+    if (ulist.includes(user)) {
+        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><div class="online"></div><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+    } else {
         document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
-        document.getElementById(id).innerText = post
-        document.getElementById(id + '_user').innerText = user
     }
-    else {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="Assets/Art/Icons/icon_' + icon + '.svg"></image><p2 class="Post_User">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + post + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
-    }
+    document.getElementById(id).innerText = post
+    document.getElementById(id + '_user').innerText = user
 }
 
 function clearposts() {
     document.getElementById('HomeArea').innerHTML = ""
+}
+
+function sussybaka() {
+    location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 }
 
 function auth_join() {
@@ -232,6 +235,18 @@ async function goto_connect() {
                 }
                 else {
                     cljs.send({ cmd: "direct", val: {cmd: "authpswd", val: {username: localStorage.getItem('user'), pswd: localStorage.getItem('pswd')}}, listener: "authpswd"})
+                    cljs.on('statuscode', (data) => {
+                        if (data.listener == "authpswd") {
+                            if (data.val == "I:100 | OK") {
+                                
+                            }
+                            else {
+                                localStorage.setItem('pswd', null);
+                                localStorage.setItem('user', null);
+                                gotologin()
+                            }
+                        }
+                    })
                 }
             }
         })
@@ -253,7 +268,7 @@ async function goto_connect() {
                 }
             }
             else if (data.val.post_origin == "home") {
-                addpost("PF",data.val.p,data.val.u,data.val.post_id)
+                addpost(data.val.p,data.val.u,data.val.post_id)
             }
         })
 
@@ -287,10 +302,10 @@ async function getposts() {
         console.log(downloadedposts)
         downloadedposts.push(rev[i])
         //add meower oauth api stuff for pfps
-        addpost("PF",downloadedposts[i].p,downloadedposts[i].u,downloadedposts[i].post_id)
+        addpost(downloadedposts[i].p,downloadedposts[i].u,downloadedposts[i].post_id)
 	}
     if (downloadedposts.length < 1) {
-        addpost("PF","There are no posts! Sit back and wait until someone sends a new post!","System")
+        addpost("There are no posts! Sit back and wait until someone sends a new post!","System")
     }
 }
 
