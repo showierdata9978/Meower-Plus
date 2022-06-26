@@ -55,20 +55,20 @@ class Cloudlink {
 
 
 
-
-
-
+const txt_input = document.getElementById("txtpostpost");
+const start =  document.getElementById('start')
+const Home = document.getElementById('HomeArea');
 
 let loggedout = false
 let downloadedposts = []
 let ulist = 0
 let ulistcount = 0
 let ulistnames = 0
-let lstorage = window.localStorage;
+const lstorage = window.localStorage;
 
 async function load() {
     await delay(100);
-    document.getElementById('start').style.visibility = 'visible';
+    start.style.visibility = 'visible';
 }
 
 load()
@@ -88,18 +88,19 @@ function playselect() {
 	audio.play();
 }
 
+
 function addpost(post,user,id = null) {
     if (ulist.includes(user)) {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><div class="online"></div><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        Home.innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><div class="online"></div><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ Home.innerHTML
     } else {
-        document.getElementById('HomeArea').innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ document.getElementById('HomeArea').innerHTML
+        Home.innerHTML = '<div class="Post_Home_UI"><div class="Post_Top"><image class="Post_UserImage" alt="PFP" src="' + 'https://dev.meower.org/pfp/' + user + '"></image><p2 class="Post_User" id="' + id + '_user">' + user + '</p2></div><p2 class="Post_Text" id="' + id + '">' + '</p2></div>'+ Home.innerHTML
     }
     document.getElementById(id).innerText = post
     document.getElementById(id + '_user').innerText = user
 }
 
 function clearposts() {
-    document.getElementById('HomeArea').innerHTML = ""
+    Home.innerHTML = ""
 }
 
 function sussybaka() {
@@ -230,10 +231,10 @@ var maintenence = false
 
 async function goto_connect() {
     if (maintenence) {
-        document.getElementById('start').style.visibility = 'hidden';
+        start.style.visibility = 'hidden';
     }
     else {
-        document.getElementById('start').style.visibility = 'hidden';
+        start.style.visibility = 'hidden';
         document.getElementById('introscreen').style.visibility = 'visible';
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
         window.cljs = new Cloudlink("wss://server.meower.org/");
@@ -364,9 +365,9 @@ async function hideusers() {
     document.getElementById('UsersOnline').style.animation = 'fadeout 1.6s';
     await delay(1600);
     document.getElementById('UsersOnline').style.visibility = 'hidden';
-    document.getElementById('HomeArea').style.visibility = 'visible';
-    document.getElementById('HomeArea').style.animation = "none";
-    document.getElementById('HomeArea').style.animation = 'hesback 3s ease';
+    Home.style.visibility = 'visible';
+    Home.style.animation = "none";
+    Home.style.animation = 'hesback 3s ease';
     await delay(1600);
     document.getElementById('ShowUsers').onclick = function() {showusers()};
     document.getElementById('ShowUsers').innerHTML = 'Show Users Online';
@@ -378,9 +379,9 @@ async function hu_nm() {
 }
 
 async function showusers() {
-    document.getElementById('HomeArea').style.animation = 'zoomoutintro2 1.6s ease';
+    Home.style.animation = 'zoomoutintro2 1.6s ease';
     await delay(1600);
-    document.getElementById('HomeArea').style.visibility = 'hidden';
+    Home.style.visibility = 'hidden';
     await delay(100);
     document.getElementById('UsersOnline').style.visibility = 'visible';
     document.getElementById('UsersOnline').style.animation = 'goin 1.6s ease';
@@ -434,3 +435,9 @@ function ms_alert(title = "Alert",message = "Please insert a message.",buttonnam
 //audio.play();
 //document.getElementById('meowertexti').style.animation = 'introout 0.4s';
 //await delay(400);
+
+//for future use
+function reply(user) {
+    
+    txt_input.text = "@" + user + txt_input.text
+}
