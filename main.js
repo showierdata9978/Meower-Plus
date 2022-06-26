@@ -307,6 +307,8 @@ function logout() {
     document.getElementById('home').style.visibility = 'hidden';
     document.getElementById('logout').style.visibility = 'visible';
     loggedout = true
+    localStorage.setItem('pswd', null);
+    localStorage.setItem('user', null);
     cljs.disconnect()
 }
 
@@ -333,7 +335,15 @@ async function getposts() {
 }
 
 function post() {
-	cljs.send({cmd: "direct", val: {cmd: "post_home", val: document.getElementById("txtpostpost").value.replace(EmojiRegex,'')}, listener: "post_home"})
+    if (document.getElementById("txtpostpost").value.trim().length === 0) {
+        cljs.send({cmd: "direct", val: {cmd: "post_home", val: "Blank Or Whitespace-Only Post Error"}, listener: "post_home"})
+        ms_alert("Posts System","You Cannot Send A Blank Or Whitespace-Only Post!")
+    } else if (document.getElementById("txtpostpost").value.length > 249) {
+        cljs.send({cmd: "direct", val: {cmd: "post_home", val: "Over 250 Characters Error"}, listener: "post_home"})
+        ms_alert("Posts System","The Post Was over 250 characters! Being " + document.getElementById("txtpostpost").value.length + " Characters!")
+    } else {
+        cljs.send({cmd: "direct", val: {cmd: "post_home", val: document.getElementById("txtpostpost").value.replace(EmojiRegex,'')}, listener: "post_home"})
+    }
 }
 
 var showpassb = false

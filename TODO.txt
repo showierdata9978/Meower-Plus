@@ -5,10 +5,11 @@ Backend Change With Post Ids. Where Post ids are shown as the ids of the posts (
 Fix Disconnection Screen/Alert Box On Loading Screen.
 Clear cookies
 Is Online
+Update no js screen
+Blank Post and over 300 letters limits
 
 do:
 Group chats
-Changelog screen
 
 Next upd:
 Settings/Debug
@@ -20,6 +21,7 @@ Maintenence screen
 
 Next next next upd (maybe):
 Go back on login screen work
+Changelog screen
 
 Later:
 Meowy sleep anim
