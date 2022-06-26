@@ -404,6 +404,16 @@ button:active{
 	font-family: Simvoni-Bold;
 }
 
+.jsuse {
+	transform: translate(-50%,600%);
+	left: 50%;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	font-size: 3vh;
+	font-family: Simvoni-Bold;
+}
+
 .gb-bttn {
 	position: absolute;
 	transform: translate(-50%,-50%);
@@ -537,4 +547,9 @@ button:active{
 	position: absolute;
 	visibility: hidden;
 	overflow: scroll;
+}
+
+#wrongcache {
+	position: absolute;
+	visibility: hidden;
 }

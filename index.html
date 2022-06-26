@@ -15,15 +15,20 @@
 			};
 		</script>
 		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="warning.js"></script>
 		<meta name="viewport" content="width=device-width">
 	</head>
 	<body>
-		<noscript style="font-family: sans-serif;" class="CENTERED">
-			<video width="320" height="240" controls>
-				<source src="Assets/PUTTHEGODDAMNCDIN.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
-			Meower uses javascript to work, please enable javascript.
+		<noscript style="font-family: sans-serif; width: 100%; height: 100%;">
+			<div id="msa-alert-box" class="CENTERED">
+				<img src="Assets/Art/alert_bg.png" id="alb_bgimg"></img>
+				<video width="320" height="240" controls class="CENTERED">
+					<source src="Assets/PUTTHEGODDAMNCDIN.mp4" type="video/mp4">
+					Stop using Ie2 nerd
+				</video>
+				<p class="jsuse">Meower uses javascript to work, please enable javascript.</p>
+			</div>
+			<div id="msa-bg"></div>
 		</noscript>
 		<div id="meower-style-alert">
 			<div id="msa-alert-box" class="CENTERED">
@@ -50,7 +55,7 @@
 			<button onclick="login()" class="BIG" id="logbttn_l">Log in</button>
 			<button onclick="join()" class="BIG" id="joinbttn_l">Join</button>
 			<img src="Assets/Art/happymeow.svg" class="CENTERED" id = "meow_login"></img>
-			<p id="login_v">Meower HTML Public Beta V1.4.7.3, Sister project of Meower Media Co.</p>
+			<p id="login_v">Meower HTML Public Beta V1.4.9, Sister project of Meower Media Co.</p>
 		</div>
 		<div id="login">
 			<p class="loginwelcome">Log in to Meower</p>
@@ -81,7 +86,7 @@
 			<div class="SideBar">
 				<button class="meower-styled-button" onclick="logout()"><img src="Assets/Art/logout.svg"></img></button>
 				<button onclick="ms_alert('Alert test!', 'This is testing the alert box feature! This will be a feature that will be used for disconnection screens and work in progress features!')">Alert Box Test</button>
-				<button onclick='ms_alert("Home Navbar","Full changelog screen coming soon, Changelog: i totally aded group chats.")'>Chan- ge Log</button>
+				<button onclick='ms_alert("Home Navbar","Full changelog screen coming soon, Changelog: Bug fixes and manual logout clear cookies")'>Chan- ge Log</button>
 				<button class="meower-styled-button" onclick="sussybaka()"><img alt="sus thing"></img></button>
 				<button class="meower-styled-button" onclick="tohomeSB()"></button>
 				<button class="meower-styled-button" onclick="groupchats()">Group Chats</button>
@@ -197,6 +202,9 @@
 			<img src="./Assets/Art/Icons/icon_21.svg" alt="MEOW"></img>
 			<img src="./Assets/Art/Icons/icon_21.svg" alt="MEOW"></img>
 			<img src="./Assets/Art/Icons/icon_21.svg" alt="MEOW"></img>
+		</div>
+		<div id="wrongcache">
+			<p>If this message appears, Your Browser Might not be properly updating cache!</p>
 		</div>
 	</body>
 </html>
