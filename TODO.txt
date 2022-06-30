@@ -9,7 +9,7 @@ Update no js screen
 Blank Post and over 300 letters limits
 
 do:
-Group chats
+Moderator panel
 
 Next upd:
 Settings/Debug
@@ -30,6 +30,7 @@ FIX LITERALLY EVERYTHING
 Fix text sizing
 Maintenence api with flask
 Need help with crap css
+Group chats
 
 AAAAAAAAAAAAAAAAAA:
 Date on post

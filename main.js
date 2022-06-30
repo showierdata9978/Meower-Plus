@@ -238,6 +238,7 @@ async function goto_connect() {
         document.getElementById('start').style.visibility = 'hidden';
         document.getElementById('introscreen').style.visibility = 'visible';
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
+        //window.cljs = new Cloudlink("wss://meower-old-server.tnix.software")
         window.cljs = new Cloudlink("wss://server.meower.org/");
         //window.cljs = new Cloudlink("ws://localhost:3000/");
         window.is_authed = false;
@@ -291,7 +292,7 @@ async function goto_connect() {
                 }
             }
             else if (data.val.post_origin == "home") {
-                addpost(data.val.p,data.val.u,data.val.post_id)
+                addpost(data.val.p.replace(EmojiRegex,''),data.val.u,data.val.post_id)
             }
         })
 
@@ -327,7 +328,7 @@ async function getposts() {
         console.log(downloadedposts)
         downloadedposts.push(rev[i])
         //add meower oauth api stuff for pfps
-        addpost(downloadedposts[i].p,downloadedposts[i].u,downloadedposts[i].post_id)
+        addpost(downloadedposts[i].p.replace(EmojiRegex,''),downloadedposts[i].u,downloadedposts[i].post_id)
 	}
     if (downloadedposts.length < 1) {
         addpost("There are no posts! Sit back and wait until someone sends a new post!","System")
