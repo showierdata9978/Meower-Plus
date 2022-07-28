@@ -231,6 +231,7 @@ var nocookielogin = false //Disables auto login, for debugging
 var maintenence = false
 
 async function goto_connect() {
+    location.replace("depercated.html")
     if (maintenence) {
         document.getElementById('start').style.visibility = 'hidden';
     }
@@ -239,8 +240,8 @@ async function goto_connect() {
         document.getElementById('introscreen').style.visibility = 'visible';
         document.getElementById('introanim1').src = "Assets/AnimateCanvas/meowyanim_connecting.html"
         //window.cljs = new Cloudlink("wss://meower-old-server.tnix.software")
-        window.cljs = new Cloudlink("wss://server.meower.org/");
-        //window.cljs = new Cloudlink("ws://localhost:3000/");
+        //window.cljs = new Cloudlink("wss://server.meower.org/");
+        window.cljs = new Cloudlink("ws://127.0.0.1:3000/");
         window.is_authed = false;
 
         function ping() {
