@@ -1,6 +1,6 @@
 # Meower HTML5
 
-Visit at https://html.meower.org! 
+Meower HTML5 is deprecated in favor of [Meower Svelte](https://svelte.meower.org/)
 
 # About
 Meower HTML5 is a version of Meower written with CLJS.
